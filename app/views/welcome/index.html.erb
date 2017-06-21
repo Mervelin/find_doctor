@@ -1,2 +1,23 @@
 <h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+
+<table class="listing" summary="Page list">
+  <tr class="header">
+    <th>Imie</th>
+    <th>Nazwisko</th>
+    <!--<th>Page</th>-->
+    <!--<th>Visible</th>-->
+    <!--<th>Permlink</th>-->
+    <!--<th>Sections</th>-->
+    <!--<th>Actions</th>-->
+  </tr>
+
+  <% @doctors.each do |doctor| %>
+
+  <tr>
+    <td><%= doctor.first_name %></td>
+    <td><%= doctor.last_name %></td>
+    <!--<td><%=  %></td>-->
+    <!--<td></td>-->
+  </tr>
+  <% end %>
+</table>
