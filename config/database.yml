@@ -85,5 +85,5 @@ test:
 production:
   <<: *default
   database: find_doctor_production
-  username: find_doctor
-  password: <%= ENV['FIND_DOCTOR_DATABASE_PASSWORD'] %>
+  username: mervelin
+  password: admin123
