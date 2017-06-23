@@ -1,0 +1,27 @@
+<% if @doctors %>
+  <table class="table table-striped table-hover" summary="Page list">
+    <tr class="header">
+      <th>Imie</th>
+      <th>Nazwisko</th>
+      <th></th>
+      <!--<th>Visible</th>-->
+      <!--<th>Permlink</th>-->
+      <!--<th>Sections</th>-->
+      <!--<th>Actions</th>-->
+    </tr>
+
+    <% @doctors.each do |doctor| %>
+
+        <tr>
+          <td><%= doctor.first_name %></td>
+          <td><%= doctor.last_name %></td>
+          <td><%= link_to('Pokaz profil', doctor_path(id: doctor.id ), class: 'btn btn-primary')
+          %></td>
+          <!--<td></td>-->
+          <!--<td></td>-->
+        </tr>
+    <% end %>
+  </table>
+<% else %>
+ <p>Brak Danych</p>
+<% end %>
