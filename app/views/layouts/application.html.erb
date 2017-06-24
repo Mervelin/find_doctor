@@ -15,21 +15,33 @@
           <div class="navbar-header">
             <%= link_to('Find Doctor', root_path, class: 'navbar-brand logo') %>
           </div>
-
           <ul class="nav nav-pills navbar-right">
             <li role="presentation" class="<%= 'active' if @page_title == 'Panel Pacjenta' %>">
-              <%= link_to('Panel Pacjenta', welcome_index_path, class: 'navbar-brand') %></a></li>
+              <%= link_to('Panel Pacjenta', dashboard_patients_path, class: 'navbar-brand')
+              %></a></li>
             <li role="presentation" class="<%= 'active' if @page_title == 'Panel Lekarza' %>">
-              <%= link_to('Panel Lekarza', welcome_index_path, class: 'navbar-brand') %></li>
+              <%= link_to('Panel Lekarza', dashboard_doctors_path, class: 'navbar-brand') %></li>
           </ul>
+          <% if signed_in? %>
+              <p class="navbar-text navbar-right" style="margin-right: 40px;">Zalogowany jako
+                <% if patient_signed_in? then %>
+                    pacjent <%= current_patient.email %>
+                <% else %>
+                    lekarz <%= current_doctor.email %>
+                <% end %>
+              </p></div>
+          <% end %>
         </div>
       </nav>
     </div>
     <div id="container">
-      <%if !flash[:notice].blank? %>
-          <div class="notice">
-            <%= flash[:notice] %>
-          </div>
+
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
       <% end %>
 
       <div id="content">

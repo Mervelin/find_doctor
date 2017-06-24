@@ -1,13 +1,7 @@
 class DoctorsController < ApplicationController
-  def index
-    @page_title = 'Lista lekarzy'
-    logger.debug("************* %#{params[:search_specialization]}% ************")
-    @doctors = Doctor.search(params[:search_specialization], params[:search_city])
-  end
+  include AccessibleDoctors
 
-  def show
-    @doctor = Doctor.find(params[:id])
-  end
+  before_action :authenticate_doctor!
 
   def edit
   end
@@ -19,5 +13,11 @@ class DoctorsController < ApplicationController
   end
 
   def create
+  end
+
+  def dashboard
+    redirect_to(new_doctor_session_path) unless current_doctor
+    @doctor = current_doctor
+    @page_title = 'Panel Lekarza'
   end
 end
