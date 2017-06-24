@@ -1,2 +1,36 @@
-<h1>Doctors#edit</h1>
-<p>Find me in app/views/doctors/edit.html.erb</p>
+<%= link_to('<< Anuluj', dashboard_doctors_path) %>
+
+<div>
+  <h2>Edytuj dane</h2>
+
+  <%= form_for(@doctor, url: doctor_path(@doctor), method: 'patch') do |f| %>
+
+      <table>
+        <tr>
+          <th>Imie</th>
+          <td><%= f.text_field(:first_name) %></td>
+        </tr>
+        <tr>
+          <th>Nazwisko</th>
+          <td><%= f.text_field(:last_name) %></td>
+        </tr>
+        <tr>
+          <th>Telefon</th>
+          <td><%= f.text_field(:phone) %></td>
+        </tr>
+        <tr>
+          <th>Specjalizacja</th>
+          <td><%= f.text_field(:specialization) %></td>
+        </tr>
+        <tr>
+          <th>Opis</th>
+          <td><%= f.text_field(:description) %></td>
+        </tr>
+      </table>
+
+      <div class="form-buttons">
+        <%= f.submit('Zapisz zmiany') %>
+      </div>
+
+  <% end %>
+</div>
