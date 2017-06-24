@@ -1,0 +1,26 @@
+
+
+<table class="table" summary="My visits">
+  <tr>
+    <th>Name</th>
+    <th>Contact</th>
+    <th>Office</th>
+    <th>Date and time</th>
+    <th>Actions</th>
+  </tr>
+  <% @visits.each do |visit| %>
+      <tr>
+        <td><%= visit.patient.name %> </td>
+        <td><%= visit.patient.phone %> <br/>
+          <%= visit.patient.email %></td>
+        <td><%= visit.office.postal_code %> <%= visit.office.city %> <br/>
+          <%= visit.office.street %> <%= visit.office.nr %></td>
+        <td class="center"> <%= visit.start_time %></td>
+        <td>
+          <%= link_to('Edit', edit_visit_path(visit), class: 'btn btn-primary') %>
+          <%= link_to('Delete', visit_path(visit), method: 'delete',
+                      class: 'btn btn-primary') %>
+        </td>
+      </tr>
+  <% end %>
+</table>

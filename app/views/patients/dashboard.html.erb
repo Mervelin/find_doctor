@@ -1,9 +1,17 @@
-<h1>Patients#dashboard</h1>
-<p>Find me in app/views/patients/dashboard.html.erb</p>
 
-<p>Pacjent <%= @patient.email %></p>
+<p>Patient <%= @patient.email %></p>
 
 
+<%= link_to('Edit personal info', edit_patient_path(id: @patient.id)) %>
 
+<br/>
 
-<%= link_to('Wyloguj', destroy_patient_session_path, method: 'delete') %>
+<%= link_to('Edit credentials', edit_patient_registration_path) %>
+
+<br/>
+
+<%= link_to('My visits', visits_path) %>
+
+<br/>
+
+<%= link_to('Logout', destroy_patient_session_path, method: 'delete') %>

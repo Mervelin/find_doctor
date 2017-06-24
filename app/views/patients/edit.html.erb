@@ -1,2 +1,28 @@
-<h1>Patients#edit</h1>
-<p>Find me in app/views/patients/edit.html.erb</p>
+<%= link_to('<< Cancel', dashboard_patients_path) %>
+
+<div>
+  <h2>Edit data</h2>
+
+  <%= form_for(@patient, url: patient_path(@patient), method: 'patch') do |f| %>
+
+      <table>
+        <tr>
+          <th>First name</th>
+          <td><%= f.text_field(:first_name) %></td>
+        </tr>
+        <tr>
+          <th>Last name</th>
+          <td><%= f.text_field(:last_name) %></td>
+        </tr>
+        <tr>
+          <th>Phone number</th>
+          <td><%= f.text_field(:phone) %></td>
+        </tr>
+      </table>
+
+      <div class="form-buttons">
+        <%= f.submit('Save') %>
+      </div>
+
+  <% end %>
+</div>

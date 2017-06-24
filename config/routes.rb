@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :doctors, path: 'doctors', controllers: { sessions: "doctors/sessions"}
   devise_for :patients, path: 'patients', controllers: { sessions: "patients/sessions"}
 
@@ -22,6 +21,8 @@ Rails.application.routes.draw do
 
   resources :doctors, except: :destroy
   get 'dashboard/doctors', to: 'doctors#dashboard', as: 'dashboard_doctors'
+
+  resources :visits, except: :show
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

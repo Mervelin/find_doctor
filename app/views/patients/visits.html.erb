@@ -1,0 +1,18 @@
+<table class="table" summary="My visits">
+  <tr>
+    <th>Name</th>
+    <th>Contact</th>
+    <th>Office</th>
+    <th>Date and time</th>
+  </tr>
+  <% @visits.each do |visit| %>
+      <tr>
+        <td><%= visit.doctor.name %></td>
+        <td><%= visit.doctor.phone %>
+          <%= visit.doctor.email %></td>
+        <td><%= visit.office.postal_code %> <%= visit.office.city %> <br/>
+          <%= visit.office.street %> <%= visit.office.nr %></td>
+        <td class="center"> <%= visit.start_time %></td>
+      </tr>
+  <% end %>
+</table>

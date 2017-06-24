@@ -1,0 +1,13 @@
+
+
+<%= link_to('<< Back to List', visits_path) %>
+
+<%= form_for(@visit, url: visit_path, method: 'patch') do |f| %>
+
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <div>
+      <%= f.submit('Update Visit') %>
+    </div>
+
+<% end %>

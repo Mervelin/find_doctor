@@ -9,25 +9,25 @@
   </head>
 
   <body>
-    <div id="header">
+    <div id="header" >
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
             <%= link_to('Find Doctor', root_path, class: 'navbar-brand logo') %>
           </div>
           <ul class="nav nav-pills navbar-right">
-            <li role="presentation" class="<%= 'active' if @page_title == 'Panel Pacjenta' %>">
-              <%= link_to('Panel Pacjenta', dashboard_patients_path, class: 'navbar-brand')
+            <li role="presentation" class="<%= 'active' if @page_title == 'Patient' %>">
+              <%= link_to('Patient', dashboard_patients_path, class: 'navbar-brand')
               %></a></li>
-            <li role="presentation" class="<%= 'active' if @page_title == 'Panel Lekarza' %>">
-              <%= link_to('Panel Lekarza', dashboard_doctors_path, class: 'navbar-brand') %></li>
+            <li role="presentation" class="<%= 'active' if @page_title == 'Doctor' %>">
+              <%= link_to('Doctor', dashboard_doctors_path, class: 'navbar-brand') %></li>
           </ul>
           <% if signed_in? %>
-              <p class="navbar-text navbar-right" style="margin-right: 40px;">Zalogowany jako
+              <p class="navbar-text navbar-right" style="margin-right: 40px;">Logged as
                 <% if patient_signed_in? then %>
-                    pacjent <%= current_patient.email %>
+                    patient <%= current_patient.email %>
                 <% else %>
-                    lekarz <%= current_doctor.email %>
+                    doctor <%= current_doctor.email %>
                 <% end %>
               </p>
           <% end %>

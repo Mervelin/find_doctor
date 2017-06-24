@@ -1,35 +1,35 @@
-<%= link_to('<< Anuluj', dashboard_doctors_path) %>
+<%= link_to('<< Cancel', dashboard_doctors_path) %>
 
 <div>
-  <h2>Edytuj dane</h2>
+  <h2>Edit info</h2>
 
   <%= form_for(@doctor, url: doctor_path(@doctor), method: 'patch') do |f| %>
 
       <table>
         <tr>
-          <th>Imie</th>
+          <th>First name</th>
           <td><%= f.text_field(:first_name) %></td>
         </tr>
         <tr>
-          <th>Nazwisko</th>
+          <th>Last name</th>
           <td><%= f.text_field(:last_name) %></td>
         </tr>
         <tr>
-          <th>Telefon</th>
+          <th>Phone number</th>
           <td><%= f.text_field(:phone) %></td>
         </tr>
         <tr>
-          <th>Specjalizacja</th>
+          <th>Specialization</th>
           <td><%= f.text_field(:specialization) %></td>
         </tr>
         <tr>
-          <th>Opis</th>
-          <td><%= f.text_field(:description) %></td>
+          <th>Description</th>
+          <td><%= f.text_area(:description) %></td>
         </tr>
       </table>
 
       <div class="form-buttons">
-        <%= f.submit('Zapisz zmiany') %>
+        <%= f.submit('Save') %>
       </div>
 
   <% end %>

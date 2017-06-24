@@ -5,9 +5,8 @@ class DoctorsController < ApplicationController
   before_action :page_title
 
   def edit
-    logger.debug("*****************#{current_doctor}")
     unless params[:id].to_i == current_doctor.id
-      flash[:alert] = 'Ej ty gagadku, niewolno'
+      flash[:alert] = 'Prohibited action'
       redirect_to(root_path) && return
     end
     @doctor = Doctor.find(params[:id])
@@ -17,7 +16,7 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.find(params[:id])
 
     if @doctor.update_attributes(doctor_params)
-      flash[:notice] = 'Zaktualizowano poprawnie'
+      flash[:notice] = 'Updated successfully'
       redirect_to(dashboard_doctors_path)
     else
       render('edit')
@@ -36,6 +35,10 @@ class DoctorsController < ApplicationController
 
   end
 
+  def visits
+
+  end
+
   private
 
   def doctor_params
@@ -44,6 +47,6 @@ class DoctorsController < ApplicationController
   end
 
   def page_title
-    @page_title = 'Panel Lekarza'
+    @page_title = 'Doctor'
   end
 end
