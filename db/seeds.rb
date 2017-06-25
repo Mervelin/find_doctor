@@ -17,16 +17,18 @@ doctor = Doctor.create(first_name: 'Jan', last_name: 'Kowalski', title: 'dr',
                        description: 'Jestem dobrym kardiologiem',
                        password: 'kowalski')
 
-office = Office.create(doctor_id: doctor.id, city: 'Zabrze', street: 'ul. Adama Mickiewicza',
+office = Office.create(doctor_id: doctor.id, city: 'Zabrze', postal_code: 12-300,
+                       street: 'ul. Adama Mickiewicza',
                        nr: '54b', info: 'na parterze')
 
 Visit.create(doctor_id: doctor.id, patient_id: patient1.id, office_id: office.id,
              start_time: '2017-07-01 08:00:00', end_time: '2017-07-01 08:30:00')
 
-office = Office.create(doctor_id: doctor.id, city: 'Katowice', street: 'ul. Warszawska',
+office = Office.create(doctor_id: doctor.id, city: 'Katowice', postal_code: 23-670,
+                       street: 'ul. Warszawska',
                        nr: '123a', info: '3 pietro')
 
-Visit.create(doctor_id: doctor.id, patient_id: patient1.id, office_id: office.id,
+Visit.create(doctor_id: doctor.id, patient_id: patient2.id, office_id: office.id,
              start_time: '2017-07-02 08:00:00', end_time: '2017-07-02 08:30:00')
 
 doctor = Doctor.create(first_name: 'Jakub', last_name: 'Lewandowski', title: 'dr',
@@ -35,13 +37,15 @@ doctor = Doctor.create(first_name: 'Jakub', last_name: 'Lewandowski', title: 'dr
                        description: 'Najlepszy ortopeda w Polsce',
                        password: 'lewandowski')
 
-Office.create(doctor_id: doctor.id, city: 'Warszawa', street: 'ul. Adama Mickiewicza',
+Office.create(doctor_id: doctor.id, city: 'Warszawa', postal_code: 01-999,
+              street: 'ul. Adama Mickiewicza',
               nr: '3', info: '')
 
 Visit.create(doctor_id: doctor.id, patient_id: patient1.id, office_id: office.id,
              start_time: '2017-07-03 08:00:00', end_time: '2017-07-03 08:30:00')
 
-Office.create(doctor_id: doctor.id, city: 'Sopot', street: 'ul. Sopocka',
+Office.create(doctor_id: doctor.id, city: 'Sopot', postal_code: 99-987,
+              street: 'ul. Sopocka',
               nr: '2', info: '')
 
 Visit.create(doctor_id: doctor.id, patient_id: patient2.id, office_id: office.id,
