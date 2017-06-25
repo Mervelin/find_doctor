@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 patient1 = Patient.create(first_name: 'demo', last_name: 'demo', email: 'demo@demo.com',
-                          phone: '987654321', password: 'demo')
-patient2 = Patient.create(first_name: 'Smok', last_name: 'Wawelski', email: 'smok@gmail.com',
-                          phone: '43986231234', password: 'smok')
+                          phone: '987654321', password: 'demo@demo.com')
+patient2 = Patient.create(first_name: 'Smok', last_name: 'Wawelski', email: 'smok@smok.com',
+                          phone: '43986231234', password: 'smok@smok.com')
 
 doctor = Doctor.create(first_name: 'Jan', last_name: 'Kowalski', title: 'dr',
                        email: 'kowalski@gmail.com', phone: '123456789',
@@ -17,7 +17,7 @@ doctor = Doctor.create(first_name: 'Jan', last_name: 'Kowalski', title: 'dr',
                        description: 'Jestem dobrym kardiologiem',
                        password: 'kowalski')
 
-office = Office.create(doctor_id: doctor.id, city: 'Krakow', street: 'ul. Adama Mickiewicza',
+office = Office.create(doctor_id: doctor.id, city: 'Zabrze', street: 'ul. Adama Mickiewicza',
                        nr: '54b', info: 'na parterze')
 
 Visit.create(doctor_id: doctor.id, patient_id: patient1.id, office_id: office.id,
@@ -41,7 +41,7 @@ Office.create(doctor_id: doctor.id, city: 'Warszawa', street: 'ul. Adama Mickiew
 Visit.create(doctor_id: doctor.id, patient_id: patient1.id, office_id: office.id,
              start_time: '2017-07-03 08:00:00', end_time: '2017-07-03 08:30:00')
 
-Office.create(doctor_id: doctor.id, city: 'Gdańsk', street: 'ul. Sopocka',
+Office.create(doctor_id: doctor.id, city: 'Sopot', street: 'ul. Sopocka',
               nr: '2', info: '')
 
 Visit.create(doctor_id: doctor.id, patient_id: patient2.id, office_id: office.id,
