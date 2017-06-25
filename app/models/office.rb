@@ -3,6 +3,6 @@ class Office < ApplicationRecord
   belongs_to :doctor
 
   def name
-    "#{city} #{street}"
+    "#{city}, #{street}"
   end
 end

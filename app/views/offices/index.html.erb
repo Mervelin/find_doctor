@@ -1,0 +1,27 @@
+<%= link_to('New', new_office_path, class: 'btn btn-primary') %>
+<br/>
+<table class="table" summary="My offices">
+  <tr>
+    <th>City</th>
+    <th>Postal code</th>
+    <th>Street</th>
+    <th>Nr</th>
+    <th>Info</th>
+    <th>Actions</th>
+  </tr>
+  <% @offices.each do |office| %>
+      <tr>
+        <td><%= office.city %> </td>
+        <td><%= office.postal_code %></td>
+        <td><%= office.street %></td>
+        <td><%= office.nr %></td>
+        <td><%= office.info %></td>
+        <td>
+          <%= link_to('Visits', visits_path(office_id: office.id), class: 'btn btn-primary') %>
+          <%= link_to('Edit', edit_office_path(office), class: 'btn btn-primary') %>
+          <%= link_to('Delete', office_path(office), method: 'delete',
+                      class: 'btn btn-primary') %>
+        </td>
+      </tr>
+  <% end %>
+</table>

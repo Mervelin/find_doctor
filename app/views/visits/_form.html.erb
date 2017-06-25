@@ -1,7 +1,14 @@
+<%= error_messages_for(f.object) %>
+
 <table summary="Visit form fields">
   <tr>
     <th>Office</th>
     <td><%= f.collection_select(:office_id, @visit.doctor.offices, :id, :name) %></td>
+  </tr>
+  <tr>
+    <th>Patient</th>
+    <td><%= f.label :first_name %><%= f.text_field(:first_name) %></td>
+    <td><%= f.label :last_name %><%= f.text_field(:last_name) %></td>
   </tr>
   <tr>
     <th>Start time</th>

@@ -1,2 +1,13 @@
-<h1>Visits#new</h1>
-<p>Find me in app/views/visits/new.html.erb</p>
+
+
+<%= link_to('<< Back to List', visits_path) %>
+
+<%= form_for(@visit, url: visits_path, method: 'post') do |f| %>
+
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <div>
+      <%= f.submit('Create Visit') %>
+    </div>
+
+<% end %>

@@ -1,0 +1,11 @@
+<%= link_to('<< Back to List', offices_path) %>
+
+<%= form_for(@office, url: office_path, method: 'patch') do |f| %>
+
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <div>
+      <%= f.submit('Update Office') %>
+    </div>
+
+<% end %>

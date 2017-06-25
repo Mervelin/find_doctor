@@ -23,20 +23,9 @@ class DoctorsController < ApplicationController
     end
   end
 
-  def new
-  end
-
-  def create
-  end
-
   def dashboard
     redirect_to(new_doctor_session_path) unless current_doctor
     @doctor = current_doctor
-
-  end
-
-  def visits
-
   end
 
   private

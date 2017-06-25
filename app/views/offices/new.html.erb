@@ -1,0 +1,11 @@
+<%= link_to('<< Back to List', offices_path) %>
+
+<%= form_for(@office, url: offices_path, method: 'post') do |f| %>
+
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <div>
+      <%= f.submit('Create Office') %>
+    </div>
+
+<% end %>
