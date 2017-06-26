@@ -2,7 +2,7 @@ class OfficesController < ApplicationController
   include AccessibleDoctors
 
   before_action :authenticate_doctor!
-  before_action :page_title
+  before_action :set_office, only: %i[edit update destroy]
 
   def index
     @offices = Office.where(doctor_id: current_doctor.id)
@@ -25,11 +25,9 @@ class OfficesController < ApplicationController
   end
 
   def edit
-    @office = Office.find(params[:id])
   end
 
   def update
-    @office = Office.find(params[:id])
     if @office.update_attributes(office_params)
       flash[:notice] = 'Office updated successfully'
       redirect_to(offices_path)
@@ -39,7 +37,6 @@ class OfficesController < ApplicationController
   end
 
   def destroy
-    @office = Office.find(params[:id])
     @office.destroy
   end
 
@@ -49,7 +46,7 @@ class OfficesController < ApplicationController
     params.require(:office).permit(:city, :postal_code, :street, :nr, :info)
   end
 
-  def page_title
-    @page_title = 'Doctor'
+  def set_office
+    @office = Office.find(params[:id])
   end
 end

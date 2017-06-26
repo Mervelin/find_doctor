@@ -1,3 +1,4 @@
+<% title 'Find Doctor' %>
 <%= form_tag welcome_doctors_path, method: :get, class: 'form-inline form-search' do %>
     <div class="form-group">
       <%= text_field_tag :search_specialization, params[:search_specialization], class: 'form-control',

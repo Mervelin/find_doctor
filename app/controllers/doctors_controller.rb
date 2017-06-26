@@ -2,19 +2,16 @@ class DoctorsController < ApplicationController
   include AccessibleDoctors
 
   before_action :authenticate_doctor!
-  before_action :page_title
+  before_action :set_doctor, only: %i[edit update]
 
   def edit
     unless params[:id].to_i == current_doctor.id
       flash[:alert] = 'Prohibited action'
       redirect_to(root_path) && return
     end
-    @doctor = Doctor.find(params[:id])
   end
 
   def update
-    @doctor = Doctor.find(params[:id])
-
     if @doctor.update_attributes(doctor_params)
       flash[:notice] = 'Updated successfully'
       redirect_to(dashboard_doctors_path)
@@ -35,7 +32,7 @@ class DoctorsController < ApplicationController
                                    :description)
   end
 
-  def page_title
-    @page_title = 'Doctor'
+  def set_doctor
+    @office = Office.find(params[:id])
   end
 end
